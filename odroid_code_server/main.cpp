@@ -27,10 +27,6 @@ void sendImage(int& client_socket, vector<uchar>& compressed_image, Mat& frame, 
 {
     capture >> frame;
     imencode(".png", frame, compressed_image);
-    // unsigned int buffer_size = compressed_image.size();
-    // cout << buffer_size << endl;
-    // unsigned int size_buf_net = htonl(buffer_size);
-    // send(client_socket, (const char*)&size_buf_net, sizeof(size_buf_net), 0);
     sendUint(client_socket, compressed_image, buffer_size );
     send(client_socket, compressed_image.data(), compressed_image.size(), 0);
     return;
@@ -95,26 +91,10 @@ int main(){
         cout << "Failed to capture an image" << endl;
         return -1;
         }
-        // cvtColor(frame, edges, COLOR_BGR2GRAY);
-        // Canny(edges, edges, 0, 30, 3);
-        // imwrite("capture.png", frame);
     }
 
     while(true)
     {
-        // capture >> frame;
-        // imwrite("capture.png", frame);
-
-        // imencode(".png", frame, compressed_image);
-        // unsigned int buffer_size = compressed_image.size();
-        // cout << buffer_size << endl;
-        // unsigned int size_buf_net = htonl(buffer_size);
-
-        // send(client_socket, (const char*)&size_buf_net, sizeof(size_buf_net), 0);
-        // // int retTamImg;   
-        // // retTamImg = frame.total() * frame.elemSize();
-        // // send( client_socket, (const char *) frame.data, retTamImg, 0 );    
-        // send(client_socket, compressed_image.data(), compressed_image.size(), 0);
         sendImage(client_socket, compressed_image, frame, capture, buffer_size);
         imwrite("capture.png", frame);
 		recv(client_socket, &registreServeur, sizeof(registreServeur),0);

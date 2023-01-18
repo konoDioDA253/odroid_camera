@@ -23,7 +23,6 @@ void showImage(Mat& frame_received, char& keyPressed)
 
 void receiveUint(SOCKET clientSocket, unsigned int &buffer_size)
 {
-        // unsigned int buffer_size; 
         unsigned int buffer_size_net; 
         recv(clientSocket, (char*)&buffer_size_net, sizeof(unsigned int),0);
         buffer_size = ntohl((unsigned int)buffer_size_net);
@@ -33,22 +32,13 @@ void receiveUint(SOCKET clientSocket, unsigned int &buffer_size)
 
 void getImage(SOCKET clientSocket,Mat& frame_received, unsigned int& buffer_size)
 {
-        // unsigned int buffer_size; 
-        // unsigned int buffer_size_net; 
-        // recv(clientSocket, (char*)&buffer_size_net, sizeof(unsigned int),0);
-        // buffer_size = ntohl((unsigned int)buffer_size_net);
-        // cout << (unsigned int)buffer_size << endl;
         receiveUint( clientSocket, buffer_size);
         vector<uchar> buffer;
-        // char* new_buffer = reinterpret_cast<char*>(buffer.data());
         buffer.resize((int)buffer_size);
         for	(int i =0; i < buffer_size; i++)
         {
             recv(clientSocket, (char*)buffer.data()/*buffer.data()*/ + i*sizeof(uchar), sizeof(uchar)/*buffer.size()*sizeof(uchar)*/,0);	
-            // recv(clientSocket, buffer + i, buffer_size - i/*buffer.size()*sizeof(uchar)*/,0);	
         }
-        // vector<uchar> buffer = reinterpret_cast<unsigned char*>(new_buffer);
-        // char* pixels = reinterpret_cast<char*>(buffer);
         frame_received = imdecode(buffer,IMREAD_ANYCOLOR,&frame_received);
         return;
 }
@@ -105,37 +95,12 @@ int main(int argc, char** argv) {
     while(true)
     {
 
-        Mat frame_received;// = Mat::zeros( 480,640, CV_8UC3); //= imread("E:\\Documents\\Automne_2022\\ELE4205\\mytest\\capture.png",IMREAD_COLOR);
-        // int buffer_size  = (int) (frame_received.total()*frame_received.elemSize());
-        // char * buffer;
-        // buffer = (char *) malloc (sizeof(char) * buffer_size + 1);    
-        // unsigned int buffer_size; 
-        // unsigned int buffer_size_net; 
-        // recv(clientSocket, (char*)&buffer_size_net, sizeof(unsigned int),0);
-        // buffer_size = ntohl((unsigned int)buffer_size_net);
-        // cout << (unsigned int)buffer_size << endl;
-
-        // vector<uchar> buffer;
-        // // char* new_buffer = reinterpret_cast<char*>(buffer.data());
-        // buffer.resize((int)buffer_size);
-        // for	(int i =0; i < buffer_size; i++)
-        // {
-        //     recv(clientSocket, (char*)buffer.data()/*buffer.data()*/ + i*sizeof(uchar), sizeof(uchar)/*buffer.size()*sizeof(uchar)*/,0);	
-        //     // recv(clientSocket, buffer + i, buffer_size - i/*buffer.size()*sizeof(uchar)*/,0);	
-        // }
-        // // vector<uchar> buffer = reinterpret_cast<unsigned char*>(new_buffer);
-        // // char* pixels = reinterpret_cast<char*>(buffer);
-        // frame_received = imdecode(buffer,IMREAD_ANYCOLOR,&frame_received);
+        Mat frame_received;
 
         getImage(clientSocket, frame_received, buffer_size);
         imwrite("capture.png",frame_received);
 
 
-        // imwrite("capture.png", frame_received);
-
-        // namedWindow("window", WINDOW_AUTOSIZE);
-        // imshow("window", frame_received);
-        // keyPressed = waitKey(1);
         showImage(frame_received, keyPressed);
         keyPressed = waitKey(1);
         send(clientSocket, &registreClient, sizeof(registreClient), 0);
