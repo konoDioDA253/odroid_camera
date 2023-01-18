@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="E:\Documents\Automne_2022\ELE4205\odroid_camera\mytest_client\build\CMakeFiles\0b2a73946e15963428a6ff4bacdd1479\NightlyMemoryCheck.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\Documents\Automne_2022\ELE4205\odroid_camera\mytest_client\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="E:\Documents\Automne_2022\ELE4205\odroid_camera\mytest_client\build\CMakeFiles\NightlyMemoryCheck" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{9ACE99AB-DA62-3782-96C2-1584468FCC77}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

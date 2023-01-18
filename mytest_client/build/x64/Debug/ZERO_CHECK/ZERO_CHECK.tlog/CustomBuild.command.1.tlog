@@ -1,0 +1,10 @@
+^E:\DOCUMENTS\AUTOMNE_2022\ELE4205\ODROID_CAMERA\MYTEST_CLIENT\BUILD\CMAKEFILES\0B2A73946E15963428A6FF4BACDD1479\GENERATE.STAMP.RULE
+setlocal
+C:\msys64\mingw64\bin\cmake.exe -SE:/Documents/Automne_2022/ELE4205/odroid_camera/mytest_client -BE:/Documents/Automne_2022/ELE4205/odroid_camera/mytest_client/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file E:/Documents/Automne_2022/ELE4205/odroid_camera/mytest_client/build/mytest.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

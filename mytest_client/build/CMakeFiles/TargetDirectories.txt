@@ -1,0 +1,9 @@
+E:/Documents/Automne_2022/ELE4205/odroid_camera/mytest_client/build/CMakeFiles/Experimental.dir
+E:/Documents/Automne_2022/ELE4205/odroid_camera/mytest_client/build/CMakeFiles/Nightly.dir
+E:/Documents/Automne_2022/ELE4205/odroid_camera/mytest_client/build/CMakeFiles/Continuous.dir
+E:/Documents/Automne_2022/ELE4205/odroid_camera/mytest_client/build/CMakeFiles/NightlyMemoryCheck.dir
+E:/Documents/Automne_2022/ELE4205/odroid_camera/mytest_client/build/CMakeFiles/mytest.dir
+E:/Documents/Automne_2022/ELE4205/odroid_camera/mytest_client/build/CMakeFiles/PACKAGE.dir
+E:/Documents/Automne_2022/ELE4205/odroid_camera/mytest_client/build/CMakeFiles/RUN_TESTS.dir
+E:/Documents/Automne_2022/ELE4205/odroid_camera/mytest_client/build/CMakeFiles/ALL_BUILD.dir
+E:/Documents/Automne_2022/ELE4205/odroid_camera/mytest_client/build/CMakeFiles/ZERO_CHECK.dir
